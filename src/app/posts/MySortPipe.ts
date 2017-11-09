@@ -1,20 +1,23 @@
 import { Pipe , PipeTransform } from '@angular/core';
-import {Book} from './book';
+import {copy} from "fs-extra";
 
 @Pipe({
   name: 'sort'
 })
 export class MySortPipe implements PipeTransform {
+
  public transform(array: any[], field: string): any[] {
-    array.sort((a: any, b: any) => {
-      if (a[field] < b[field]) {
-        return -1;
-      } else if (a[field] > b[field]) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-    return array;
+
+    if(array == null){
+     return array;
+    }
+    //array is readonly, make a copy for sorting.
+    var nArray = array.slice();
+
+   nArray.sort((a, b) => {
+                       return a[field].toLowerCase() < b[field].toLowerCase() ? -1 : 1;
+                    }
+    );
+    return nArray;
   }
 }

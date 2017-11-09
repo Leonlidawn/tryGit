@@ -11,6 +11,7 @@ import { MdSnackBar } from '@angular/material';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
+import '../MySortPipe';
 
 import { PostsInterface } from '../graphql/schema';
 @Component({
@@ -23,7 +24,15 @@ export class PostListComponent implements OnInit {
   public posts: ApolloQueryObservable<PostsInterface>;
   public listPostFilter: string;
   public postControl = new FormControl();
+
+
+  //todo:loaded this from ipost, search on 'length' is not working yet.
+  public postProperties = ['title','content','length'];
+  public sortOption = this.postProperties[0];
+
+
   private nameFilter: Subject<string> = new Subject<string>();
+
 
   // Inject Angular2Apollo service
   constructor(private _postService: PostsService, public snackBar: MdSnackBar) {
@@ -52,4 +61,9 @@ export class PostListComponent implements OnInit {
       duration: 4000,
     });
   }
+
+  public changeSortOption(option){
+    this.sortOption = option ;
+  }
+
 }
