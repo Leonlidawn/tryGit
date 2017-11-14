@@ -29,7 +29,7 @@ export class PostListComponent implements OnInit {
   //todo:loaded this from ipost, search on 'length' is not working yet.
   public postProperties = ['title','content','length'];
   public sortOption = this.postProperties[0];
-
+  public sortOrder = 'arrow down';
 
   private nameFilter: Subject<string> = new Subject<string>();
 
@@ -64,6 +64,15 @@ export class PostListComponent implements OnInit {
 
   public changeSortOption(option){
     this.sortOption = option ;
+  }
+
+  public changeSortOrder(){
+    console.log('1');
+    if (this.sortOrder === 'arrow down' ){
+      this.sortOrder = 'arrow up' ;
+    }else{
+      this.sortOrder = 'arrow down';
+    }
   }
 
 }

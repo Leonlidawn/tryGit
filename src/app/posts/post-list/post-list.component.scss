@@ -6,38 +6,29 @@
         }
 }
 
-.arrow-up {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-
-  border-bottom: 5px solid black;
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
 }
 
-.arrow-down {
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-
-  border-top: 20px solid #f00;
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
 
-.arrow-right {
-  width: 0;
-  height: 0;
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-
-  border-left: 60px solid green;
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }
 
-.arrow-left {
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
 
-  border-right:10px solid blue;
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
